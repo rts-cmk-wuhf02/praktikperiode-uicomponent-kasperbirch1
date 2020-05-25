@@ -18,7 +18,7 @@ export const theme = {
     },
   },
   font: {
-    sans: "Cambay, san-serif",
+    sans: "Gotham, san-serif",
     serif: "Arvo, serif",
     monospace: '"Ubuntu Mono", monospace',
   },
@@ -98,8 +98,8 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colour.grey[900]};
   }
   body {
-    line-height: ${({ theme }) => theme.lineHeight.relaxed};
-    letter-spacing: ${({ theme }) => theme.letterSpacing.wide};
-    background-color: ${({ theme }) => theme.colour.white};
+    line-height: ${({ theme }) => theme.lineHeight.none};
+    letter-spacing: ${({ theme }) => theme.letterSpacing.normal};
+    background-color: ${({ theme }) => theme.colour.grey[200]};
   }
 `
