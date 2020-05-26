@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { breakpoints } from '../../../theme/breakpoints'
 import styled from 'styled-components'
 const StyledImageCardGallery = styled.article`
+    grid-column: span 2;
   @media ${breakpoints.md} {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
@@ -21,31 +22,37 @@ const StyledImageCardGallery = styled.article`
         width: 100%;
         object-fit: cover;
     }
-    div {
-        a {
-            margin-left: auto;
-            display: block;
-            width: 100px;
-            border-radius: 2rem;
-            padding: .5rem 1rem;
-            color: white;
-            background-color: #005AEE;
-            font-weight: bold;
-            font-size: .8rem;
-            text-align: center;
-            text-transform: uppercase;
-            text-decoration: none;
-        }
-        h2 {
-            text-transform: uppercase;
-            font-size: 2.8rem; 
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        p {
-            color: #7B8591;
-            margin-bottom: 1rem;
-        }
+    
+    }
+`
+
+const ImageCardGalleryInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    a {
+        margin-left: auto;
+        display: block;
+        width: 100px;
+        border-radius: 2rem;
+        padding: .5rem 1rem;
+        color: white;
+        background-color: #005AEE;
+        font-weight: bold;
+        font-size: .8rem;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+    h2 {
+        text-transform: uppercase;
+        font-size: 2.8rem; 
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+    p {
+        color: #7B8591;
+        margin-bottom: 1rem;
     }
 `
 const StyledImageCardGalleryThumbnails = styled.div`
@@ -64,7 +71,7 @@ const ImageCardGallery = ({ title, category, text, images }) => {
     return (
         <StyledImageCardGallery>
             <img src={HeroImg} alt={category} />
-            <div>
+            <ImageCardGalleryInfo>
                 <a href="/">{category}</a>
                 <h2>{title}</h2>
                 <p>{text}</p>
@@ -73,7 +80,7 @@ const ImageCardGallery = ({ title, category, text, images }) => {
                     <img onClick={(e) => setHeroImg(e.target.src)} src={images[3].fluid.src} alt={category} />
                     <img onClick={(e) => setHeroImg(e.target.src)} src={images[1].fluid.src} alt={category} />
                 </StyledImageCardGalleryThumbnails>
-            </div>
+            </ImageCardGalleryInfo>
         </StyledImageCardGallery>
     )
 }
