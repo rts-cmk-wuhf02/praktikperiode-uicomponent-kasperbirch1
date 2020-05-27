@@ -2,13 +2,11 @@ import React, { useState } from 'react'
 import { breakpoints } from '../../../theme/breakpoints'
 import styled from 'styled-components'
 const StyledImageCardGallery = styled.article`
+    @media ${breakpoints.md} {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+    }
     grid-column: ${props => props.span || "span 1"};
-    
-   
-  @media ${breakpoints.md} {
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr;
-  }
     background-color: white;
     border-radius: 1rem;
     margin: .5rem;

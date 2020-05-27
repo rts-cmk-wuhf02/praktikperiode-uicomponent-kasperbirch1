@@ -9,7 +9,6 @@ const StyledCollectionCard = styled.article`
     justify-content: space-between;
 
     background-color: #ffffff;
-    background-image: url("img_tree.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
