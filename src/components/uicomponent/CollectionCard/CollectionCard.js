@@ -3,6 +3,11 @@ import styled from 'styled-components'
 const StyledCollectionCard = styled.article`
     margin: .5rem;
     border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     background-color: #ffffff;
     background-image: url("img_tree.png");
     background-repeat: no-repeat;

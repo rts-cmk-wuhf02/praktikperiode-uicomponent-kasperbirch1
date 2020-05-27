@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { breakpoints } from '../../../theme/breakpoints'
 import styled from 'styled-components'
 const StyledImageCardGallery = styled.article`
-    grid-column: span 2;
+    grid-column: ${props => props.span || "span 1"};
+    
+   
   @media ${breakpoints.md} {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
@@ -66,10 +68,10 @@ const StyledImageCardGalleryThumbnails = styled.div`
     }
 `
 
-const ImageCardGallery = ({ title, category, text, images }) => {
+const ImageCardGallery = ({ title, category, text, images, span }) => {
     const [HeroImg, setHeroImg] = useState(images[5].fluid.src)
     return (
-        <StyledImageCardGallery>
+        <StyledImageCardGallery span={span}>
             <img src={HeroImg} alt={category} />
             <ImageCardGalleryInfo>
                 <a href="/">{category}</a>

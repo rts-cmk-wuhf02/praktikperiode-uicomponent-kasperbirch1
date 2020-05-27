@@ -30,7 +30,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <section style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)' }}>
         <ImageCard img={images[4].fluid.src} title="Surfing in Maldives" category="TRAVEL" text="It’s windy. The cool breeze of the ocean. It gives, a sense of beauty, in motion. All is flowing, rushing and tide-And I sit in wonder, dreaming beside." />
-        <ImageCardGallery images={images} title="Outdoor Experience" category="LEISURE" text="It’s windy. The cool breeze of the ocean. It gives, a sense of beauty, in motion. All is flowing, rushing and tide-And I sit in wonder, dreaming beside." />
+        <ImageCardGallery span="span 2" images={images} title="Outdoor Experience" category="LEISURE" text="It’s windy. The cool breeze of the ocean. It gives, a sense of beauty, in motion. All is flowing, rushing and tide-And I sit in wonder, dreaming beside." />
       </section >
       <section style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gridGap: '1rem' }}>
         <IconInfoCard title="ON-TIME DELIVERY" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam diam sit " icon={<FaHtml5 />} backgroundColor="#005AEE" />
