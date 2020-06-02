@@ -6,10 +6,9 @@ const StyledImageCardGallery = styled.article`
         grid-template-columns: 1fr 2fr;
         grid-template-rows: 1fr;
     }
-    grid-column: ${props => props.span || "span 1"};
+    grid-column: ${props => props.spanColumn || "span 1"};
     background-color: white;
     border-radius: 1rem;
-    margin: .5rem;
     display: grid;
     grid-template-rows: 200px 1fr;
     grid-gap: 2rem;
@@ -66,10 +65,10 @@ const StyledImageCardGalleryThumbnails = styled.div`
     }
 `
 
-const ImageCardGallery = ({ title, category, text, images, span }) => {
+const ImageCardGallery = ({ title, category, text, images, spanColumn }) => {
     const [HeroImg, setHeroImg] = useState(images[5].fluid.src)
     return (
-        <StyledImageCardGallery span={span}>
+        <StyledImageCardGallery spanColumn={spanColumn}>
             <img src={HeroImg} alt={category} />
             <ImageCardGalleryInfo>
                 <a href="/">{category}</a>

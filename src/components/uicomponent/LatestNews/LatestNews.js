@@ -2,6 +2,7 @@ import React from 'react'
 import placholderimage from '../../../images/Rectangle52.png'
 import styled from 'styled-components'
 const StyledLatestNews = styled.section`
+    grid-row: ${props => props.spanRow || "span 1"};
     border-radius: 1rem;
     background-color: #fff;
     header {
@@ -52,12 +53,12 @@ const StyledLatestNewsArticle = styled.article`
     }
 `
 
-const LatestNewsArticle = ({ img, title, text, color }) => {
+const LatestNewsArticle = ({ img, title, text, titleColor }) => {
     return (
         <StyledLatestNewsArticle>
             <img src={img} alt="" />
             <div>
-                <h2 style={{ color: color }}>{title}</h2>
+                <h2 style={{ color: titleColor }}>{title}</h2>
                 <p>{text}</p>
             </div>
         </StyledLatestNewsArticle>
@@ -66,18 +67,18 @@ const LatestNewsArticle = ({ img, title, text, color }) => {
 
 /* Article end */
 
-const LatestNews = () => {
+const LatestNews = ({ spanRow }) => {
     return (
-        <StyledLatestNews>
+        <StyledLatestNews spanRow={spanRow}>
             <header>
                 <h3>LATEST NEWS</h3>
             </header>
             <main>
-                <LatestNewsArticle color="#40BE65" title="NATURE" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam" img={placholderimage} />
-                <LatestNewsArticle color="#0072CA" title="ANIMAL KINGDOM" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam" img={placholderimage} />
-                <LatestNewsArticle color="#D9A34A" title="TECHNOLOGY" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam" img={placholderimage} />
-                <LatestNewsArticle color="#FF4967" title="EXPLORE" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam" img={placholderimage} />
-                <LatestNewsArticle color="#0072CA" title="AFRICA ZOO" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam" img={placholderimage} />
+                <LatestNewsArticle titleColor="#40BE65" title="NATURE" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam" img={placholderimage} />
+                <LatestNewsArticle titleColor="#0072CA" title="ANIMAL KINGDOM" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam" img={placholderimage} />
+                <LatestNewsArticle titleColor="#D9A34A" title="TECHNOLOGY" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam" img={placholderimage} />
+                <LatestNewsArticle titleColor="#FF4967" title="EXPLORE" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam" img={placholderimage} />
+                <LatestNewsArticle titleColor="#0072CA" title="AFRICA ZOO" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam" img={placholderimage} />
             </main>
             <footer>
                 <h3>MORE NEWS</h3>

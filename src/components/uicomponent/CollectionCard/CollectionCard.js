@@ -1,13 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 const StyledCollectionCard = styled.article`
-    margin: .5rem;
     border-radius: 1rem;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     background-color: #ffffff;
     background-repeat: no-repeat;
     background-position: center;

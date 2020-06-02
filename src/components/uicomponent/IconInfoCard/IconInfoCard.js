@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 const StyledIconInfoCard = styled.article`
-    margin: .5rem;
     border-radius: 1rem;
     padding: 1rem;
     background-color: #005AEE;
