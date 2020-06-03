@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { FaHtml5, FaCss3Alt, FaReact, FaBeer, FaFileExcel } from 'react-icons/fa'
 import SEO from "../components/seo"
+import { breakpoints } from "../theme/breakpoints"
 import ImageCard from '../components/uicomponent/ImageCard/ImageCard'
 import ImageCardGallery from '../components/uicomponent/ImageCardGallery/ImageCardGallery'
 import IconInfoCard from '../components/uicomponent/IconInfoCard/IconInfoCard'
@@ -17,6 +18,9 @@ import IconInfoCardSmall from '../components/uicomponent/IconInfoCardSmall/IconI
 import placeholderImg from '../images/Rectangle52.png'
 import styled from 'styled-components'
 const Wrapper3ColumnsTop = styled.section`
+ @media ${breakpoints.sm} {
+   /* color: red; */
+ }
   max-width: 1000px;
   margin: 0 auto;
   padding: .5rem;
