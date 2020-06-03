@@ -1,11 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 const StyledReadMoreCard = styled.article`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     padding: 1rem;
     border-radius: 1rem;
     background-color: white;
+    background-image: url('${props => props.background}');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     div {
-        margin-bottom: 2rem;
         display: flex;
         align-items: center;
         img {
@@ -17,9 +24,11 @@ const StyledReadMoreCard = styled.article`
             object-position: center;
             margin-right: .5rem;
         }
+        h2 {
+            font-weight: bold;
+        }
     }
     p {
-        margin-bottom: 2rem;
     }
     a {
         text-decoration: none;
@@ -31,15 +40,15 @@ const StyledReadMoreCard = styled.article`
     }
 `
 
-const ReadMoreCard = ({ profileImg }) => {
+const ReadMoreCard = ({ profileImg, background, linkColor, gridName }) => {
     return (
-        <StyledReadMoreCard>
+        <StyledReadMoreCard background={background} style={{ gridArea: gridName }}>
             <div>
                 <img src={profileImg} alt="" />
                 <h2>THE NEW YORK TIMES</h2>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam diam sit amet elit hendrerit rutrum. Nam egestas laoreet ligula, ac elementum risus. Aliquam volutpat ex eget elit venenatis, vel luctus arcu pulvinar. </p>
-            <a href="#">READ MORE</a>
+            <a style={{ color: linkColor }} href="#">READ MORE</a>
         </StyledReadMoreCard>
     )
 }

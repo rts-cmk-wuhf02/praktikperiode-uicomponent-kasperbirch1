@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 const StyledNewsDigest = styled.section`
-    grid-row: ${props => props.spanRow || "span 1"};
     border-radius: 1rem;
     background-color: #fff;
     header {
@@ -58,9 +57,9 @@ const NewsDigestItem = ({ number, numberColor, title, text }) => {
 }
 
 
-const NewsDigest = ({ spanRow }) => {
+const NewsDigest = ({ gridName }) => {
     return (
-        <StyledNewsDigest spanRow={spanRow}>
+        <StyledNewsDigest style={{ gridArea: gridName }} >
             <header>
                 <h3>NEWS DIGEST</h3>
             </header>

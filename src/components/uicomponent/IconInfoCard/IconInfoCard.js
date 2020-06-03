@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 const StyledIconInfoCard = styled.article`
+    /* grid-area */
     border-radius: 1rem;
     padding: 1rem;
     background-color: #005AEE;
@@ -23,9 +24,9 @@ const StyledIconInfoCard = styled.article`
 `
 
 
-const IconInfoCard = ({ title, text, icon, backgroundColor }) => {
+const IconInfoCard = ({ title, text, icon, backgroundColor, gridName }) => {
     return (
-        <StyledIconInfoCard style={{ backgroundColor: backgroundColor }} >
+        <StyledIconInfoCard style={{ backgroundColor: backgroundColor, gridArea: gridName }} >
             {icon}
             <h2>{title}</h2>
             <p>{text}</p>

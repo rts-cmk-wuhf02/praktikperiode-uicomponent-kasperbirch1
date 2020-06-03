@@ -39,9 +39,9 @@ const StyledCollectionCardInfo = styled.div`
     }
 `
 
-const CollectionCard = ({ background, collection, name, author, profileImg }) => {
+const CollectionCard = ({ background, collection, name, author, profileImg, gridName }) => {
     return (
-        <StyledCollectionCard style={{ backgroundImage: `url(${background})` }}>
+        <StyledCollectionCard style={{ backgroundImage: `url(${background})`, gridArea: gridName }}>
             <h4>collection #{collection}</h4>
             <StyledCollectionCardInfo>
                 <img src={profileImg} alt="" />

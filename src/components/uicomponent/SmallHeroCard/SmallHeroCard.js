@@ -18,9 +18,9 @@ const StyledSmallHeroCard = styled.article`
     }
 `
 
-const SmallHeroCard = ({ title, text, background, titleColor }) => {
+const SmallHeroCard = ({ title, text, background, titleColor, gridName }) => {
     return (
-        <StyledSmallHeroCard background={background}>
+        <StyledSmallHeroCard background={background} style={{ gridArea: gridName }}>
             <h2 style={{ color: titleColor }}>{title}</h2>
             <p>{text}</p>
         </StyledSmallHeroCard>

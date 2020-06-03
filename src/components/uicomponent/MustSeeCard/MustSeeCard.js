@@ -5,7 +5,7 @@ import { FaHeart, FaRegHeart } from 'react-icons/fa'
 
 import styled from 'styled-components'
 const StyledMustSeeCard = styled.section`
-    grid-column: ${props => props.spanColumn || "span 1"};
+    grid-area: MustSeeCard;
 `
 const StyledMustSeeCardItem = styled.article`
     padding: 1rem;
@@ -46,9 +46,7 @@ const StyledMustSeeCardItemHeader = styled.header`
     }
 `
 
-const MustSeeCard = ({ spanColumn, background, title, text, author, profileImg }) => {
-    console.log("background", background);
-
+const MustSeeCard = ({ background, title, text, author, profileImg }) => {
     const [Heart, setHeart] = useState(true)
     const params = {
         pagination: {
@@ -57,7 +55,7 @@ const MustSeeCard = ({ spanColumn, background, title, text, author, profileImg }
         }
     }
     return (
-        <StyledMustSeeCard spanColumn={spanColumn} >
+        <StyledMustSeeCard >
             <Swiper {...params}>
                 <StyledMustSeeCardItem style={{ backgroundImage: `url(${background})` }}>
                     <StyledMustSeeCardItemHeader>

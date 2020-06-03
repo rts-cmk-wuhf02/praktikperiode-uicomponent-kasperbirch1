@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { breakpoints } from '../../../theme/breakpoints'
 import styled from 'styled-components'
 const StyledImageCardGallery = styled.article`
+    grid-area: ImageCardGallery;
     @media ${breakpoints.md} {
         grid-template-columns: 1fr 2fr;
         grid-template-rows: 1fr;
     }
-    grid-column: ${props => props.spanColumn || "span 1"};
     background-color: white;
     border-radius: 1rem;
     display: grid;
@@ -20,8 +20,6 @@ const StyledImageCardGallery = styled.article`
         height: 100%;
         width: 100%;
         object-fit: cover;
-    }
-    
     }
 `
 
@@ -65,10 +63,10 @@ const StyledImageCardGalleryThumbnails = styled.div`
     }
 `
 
-const ImageCardGallery = ({ title, category, text, images, spanColumn }) => {
+const ImageCardGallery = ({ title, category, text, images }) => {
     const [HeroImg, setHeroImg] = useState(images[5].fluid.src)
     return (
-        <StyledImageCardGallery spanColumn={spanColumn}>
+        <StyledImageCardGallery>
             <img src={HeroImg} alt={category} />
             <ImageCardGalleryInfo>
                 <a href="/">{category}</a>

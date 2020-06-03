@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 const StyledImageCard = styled.article`
+    grid-area: ImageCard;
     border-radius: 1rem;
     background-color: white;
     img {

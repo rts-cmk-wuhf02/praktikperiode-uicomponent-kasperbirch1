@@ -2,7 +2,6 @@ import React from 'react'
 import placholderimage from '../../../images/Rectangle52.png'
 import styled from 'styled-components'
 const StyledLatestNews = styled.section`
-    grid-row: ${props => props.spanRow || "span 1"};
     border-radius: 1rem;
     background-color: #fff;
     header {
@@ -67,9 +66,9 @@ const LatestNewsArticle = ({ img, title, text, titleColor }) => {
 
 /* Article end */
 
-const LatestNews = ({ spanRow }) => {
+const LatestNews = ({ gridName }) => {
     return (
-        <StyledLatestNews spanRow={spanRow}>
+        <StyledLatestNews style={{ gridArea: gridName }} >
             <header>
                 <h3>LATEST NEWS</h3>
             </header>

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 const StyledDoubleCardContainer = styled.section`
-    grid-column: ${props => props.spanColumn || "span 1"};
     border-radius: 1rem;
     padding: 2rem;
     background-color: white;
@@ -41,9 +40,9 @@ const DoubleCardItem = ({ title, titleColor, text, img }) => {
 
 
 
-const DoubleCard = ({ spanColumn }) => {
+const DoubleCard = ({ gridName }) => {
     return (
-        <StyledDoubleCardContainer spanColumn={spanColumn}>
+        <StyledDoubleCardContainer style={{ gridArea: gridName }}>
             <DoubleCardItem title="FOOD &amp; LIFESTYLE" titleColor="#E44385" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam" img="https://images.pexels.com/photos/4321944/pexels-photo-4321944.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
             <DoubleCardItem title="FASHION" titleColor="#0AACDC" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam" img="https://images.pexels.com/photos/4352247/pexels-photo-4352247.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
         </StyledDoubleCardContainer>
