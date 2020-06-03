@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useStaticQuery, graphql } from "gatsby"
 import { breakpoints } from '../../../theme/breakpoints'
 import styled from 'styled-components'
 const StyledImageCardGallery = styled.article`
@@ -63,19 +64,44 @@ const StyledImageCardGalleryThumbnails = styled.div`
     }
 `
 
-const ImageCardGallery = ({ title, category, text, images }) => {
-    const [HeroImg, setHeroImg] = useState(images[5].fluid.src)
+const ImageCardGallery = () => {
+    const data = useStaticQuery(graphql`
+    query  {
+        allContentfulImageCardGallery {
+          nodes {
+            title
+            category
+            text {
+              content {
+                content {
+                  value
+                }
+              }
+            }
+            images {
+              fluid {
+                src
+              }
+            }
+          }
+        }
+      }
+    `)
+    const { category, images, title, text } = data.allContentfulImageCardGallery.nodes[0]
+    const [HeroImg, setHeroImg] = useState(images[0].fluid.src)
+    const cleanText = text.content[0].content[0].value.replace(/\u00a0/g, " ")
+
     return (
         <StyledImageCardGallery>
             <img src={HeroImg} alt={category} />
             <ImageCardGalleryInfo>
                 <a href="/">{category}</a>
                 <h2>{title}</h2>
-                <p>{text}</p>
+                <p>{cleanText}</p>
                 <StyledImageCardGalleryThumbnails>
+                    <img onClick={(e) => setHeroImg(e.target.src)} src={images[1].fluid.src} alt={category} />
                     <img onClick={(e) => setHeroImg(e.target.src)} src={images[2].fluid.src} alt={category} />
                     <img onClick={(e) => setHeroImg(e.target.src)} src={images[3].fluid.src} alt={category} />
-                    <img onClick={(e) => setHeroImg(e.target.src)} src={images[1].fluid.src} alt={category} />
                 </StyledImageCardGalleryThumbnails>
             </ImageCardGalleryInfo>
         </StyledImageCardGallery>

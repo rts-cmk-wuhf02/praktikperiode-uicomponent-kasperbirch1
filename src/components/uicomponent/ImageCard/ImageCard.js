@@ -1,4 +1,5 @@
 import React from 'react'
+import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
 const StyledImageCard = styled.article`
     grid-area: ImageCard;
@@ -30,17 +31,42 @@ const StyledImageCard = styled.article`
     }
 `
 
-const ImageCard = ({ title, category, text, img }) => {
-    return (
-        <StyledImageCard>
-            <img src={img} alt={title} />
-            <div>
-                <h3>{category}</h3>
-                <h2>{title}</h2>
-                <p>{text}</p>
-            </div>
-        </StyledImageCard>
-    )
+const ImageCard = ({ }) => {
+  const data = useStaticQuery(graphql`
+    query {
+        allContentfulImageCard {
+            nodes {
+              title
+              category
+              img {
+                fluid {
+                  src
+                }
+              }
+              text {
+                content {
+                  content {
+                    value
+                  }
+                }
+              }
+            }
+          }
+    }
+    `)
+  const { category, img, text, title } = data.allContentfulImageCard.nodes[0]
+  const cleanText = text.content[0].content[0].value.replace(/\u00a0/g, " ")
+
+  return (
+    <StyledImageCard>
+      <img src={img.fluid.src} alt={title} />
+      <div>
+        <h3>{category[0]}</h3>
+        <h2>{title}</h2>
+        <p>{cleanText}</p>
+      </div>
+    </StyledImageCard>
+  )
 }
 
 export default ImageCard
