@@ -38,7 +38,7 @@ const Wrapper4Columns = styled.section`
   grid-template-columns: repeat(4, 1fr);
   gap: .5rem;
   grid-template-areas: 
-  "IconInfoCard1 IconInfoCard2 IconInfoCard3 IconInfoCard4";
+  "IconInfoCard0 IconInfoCard1 IconInfoCard2 IconInfoCard3";
 `
 
 const Wrapper3ColumnsBottom = styled.section`
@@ -71,9 +71,26 @@ const IndexPage = () => {
         }
       }
     }
+    allContentfulIconInfoCard {
+      nodes {
+        id
+        title
+        text {
+          text
+        }
+        icon {
+          file {
+            url
+          }
+        }
+        backgroundColor
+      }
+    }
   }
   `)
   const images = data.allImageSharp.nodes
+  const IconInfoCardData = data.allContentfulIconInfoCard.nodes
+  console.log("IconInfoCardData", IconInfoCardData);
 
   return (
     <>
@@ -85,10 +102,13 @@ const IndexPage = () => {
       </Wrapper3ColumnsTop >
 
       <Wrapper4Columns >
-        <IconInfoCard gridName="IconInfoCard1" title="ON-TIME DELIVERY" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam diam sit " icon={<FaHtml5 />} backgroundColor="#005AEE" />
-        <IconInfoCard gridName="IconInfoCard2" title="PARCELS" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam diam sit " icon={<FaCss3Alt />} backgroundColor="#FFA767" />
-        <IconInfoCard gridName="IconInfoCard3" title="QUALITY CHECK" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam diam sit " icon={<FaReact />} backgroundColor="#0AACDC" />
-        <IconInfoCard gridName="IconInfoCard4" title="CUSTOMER SERVICE" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam diam sit " icon={<FaBeer />} backgroundColor="#597AEF" />
+        {
+          IconInfoCardData.map((element, index) => {
+            return (
+              <IconInfoCard key={element.id} gridName={`IconInfoCard${index}`} title={element.title} text={element.text.text} icon={element.icon.file.url} backgroundColor={element.backgroundColor} />
+            )
+          })
+        }
       </Wrapper4Columns>
 
       <Wrapper3ColumnsBottom >
